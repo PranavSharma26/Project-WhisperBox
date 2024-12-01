@@ -62,7 +62,7 @@ function page() {
 			const response = await axios.post<ApiResponse>('/api/sign-up', data)
 			toast({
 				title: 'Success',
-				description: 'response.data.message'
+				description: response.data.message
 			})
 			router.replace(`/verify/${username}`)
 			setIsSubmitting(false)
@@ -149,7 +149,6 @@ function page() {
 									</>
 								) : ('Signup')
 							}
-							SignUp
 						</Button>
 					</form>
 				</FormProvider>
