@@ -1,6 +1,7 @@
 import mongoose, {Schema, Document} from 'mongoose';
 
 export interface Message extends Document{
+    _id: string;  // added due to error on MessageCard
     content: string;
     createdAt: Date;
 }
