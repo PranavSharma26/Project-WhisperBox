@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Message form User123",
+        "content": "Hey, how are you doing?",
+        "received": "10 minutes ago"
+    },
+    {
+        "title": "Message form Unknown45",
+        "content": "Hey, your posts are cool?",
+        "received": "5 hours ago"
+    },
+    {
+        "title": "Message form Friend",
+        "content": "Hey, want to play cricket tomorrow",
+        "received": "1 day ago"
+    }
+]
