@@ -18,14 +18,14 @@ export const authOptions: NextAuthOptions = {
                 try{
                     const user = await UserModel.findOne({
                         $or: [
-                            {email: credentials.idertifier},
+                            {email: credentials.identifier},
                             {username: credentials.identifier}
                         ]
                     })
                     if(!user){
                         throw new Error('No user found with this email')
                     }
-                    if(user.isVerified){
+                    if(!user.isVerified){
                         throw new Error('Please verify your account before login')
                     }
                     const isPasswordCorrect = await bcrypt.compare(credentials.password,user.password)
