@@ -17,7 +17,7 @@ import { Loader2 } from "lucide-react"
 import { signIn } from "next-auth/react"
 
 function page() {
-	const [isSubmitting, setIsSubmitting] = useState(false)
+	// const [isSubmitting, setIsSubmitting] = useState(false)
 	const { toast } = useToast()
 	const router = useRouter()
 
@@ -97,7 +97,7 @@ function page() {
 								</FormItem>
 							)}
 						/>
-						<Button type='submit' disabled={isSubmitting}>
+						<Button type='submit'>
 							SignIn
 						</Button>
 					</form>

@@ -61,6 +61,7 @@ function UserDashboard() {
       try {
         const response = await axios.get<ApiResponse>('/api/get-messages');
         setMessages(response.data.messages || []);
+        console.log(response.data.messages)
         if (refresh) {
           toast({
             title: 'Refreshed Messages',
@@ -116,7 +117,7 @@ function UserDashboard() {
   };
 
   if (!session || !session.user) {
-    return <div></div>;
+    return <div>Session Expired</div>;
   }
 
   const { username } = session.user as User;

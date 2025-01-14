@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     await dbConnect()
 
     const session = await getServerSession(authOptions)
-    const _user: User = session?.user
+    const _user: User = session?.user;
     if (!session || !_user) {
         return Response.json(
             {
@@ -26,7 +26,7 @@ export async function GET(request: Request) {
             { $unwind: '$messages'},
             { $sort: {'messages.createdAt': -1}},
             { $group: {_id: '$_id', messages: {$push: '$messages'}}}
-        ])
+        ]).exec();
         if(!user || user.length===0){
             return Response.json(
                 {

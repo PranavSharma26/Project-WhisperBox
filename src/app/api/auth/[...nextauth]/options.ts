@@ -47,7 +47,7 @@ export const authOptions: NextAuthOptions = {
             if(user){
                 token._id=user._id?.toString();
                 token.isVerified = user.isVerified;
-                token.isAcceptingMessages = user.isAcceptingMessages;
+                token.isAcceptingMessage = user.isAcceptingMessage;
                 token.username = user.username;
 
             }
@@ -55,19 +55,19 @@ export const authOptions: NextAuthOptions = {
         },
         async session({ session, token}) {
             if(token){
-                session.user._id?.toString();
+                session.user._id = token._id;
                 session.user.isVerified = token.isVerified;
-                session.user.isAcceptingMessages = token.isAcceptingMessages;
+                session.user.isAcceptingMessage = token.isAcceptingMessage;
                 session.user.username = token.username;
             }
-            return  session
+            return  session;
         }
     },
+    session: {
+        strategy: 'jwt'
+    },
+    secret: "re_Vcx5yGcp_ETJEov8rGP4UfhMxvDos8wiw",
     pages: {
         signIn: '/sign-in'
     },
-    session: {
-        strategy: "jwt"
-    },
-    secret: process.env.NEXTAUTH_SECRET,
 }
