@@ -1,3 +1,2 @@
 import { Resend } from 'resend';
-
-export const resend = new Resend("re_Vcx5yGcp_ETJEov8rGP4UfhMxvDos8wiw")
+export const resend = new Resend(process.env.NEXT_RESEND_API_KEY!)
